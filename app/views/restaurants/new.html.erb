@@ -1,12 +1,27 @@
-<div class = "container">
+<div class = "container mt-4">
 
 <h2>Add a new Restaurant</h2>
 
-<%= simple_form_for (@restaurant) do |f| %>
-<%= f.input :name %>
-<%= f.input :address %>
-<%= f.input :phone_number %>
-<%= f.submit %>
-<% end  %>
+<%= simple_form_for(@restaurant) do |f| %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary"%>
+  </div>
+<% end %>
+
+<%= link_to 'Back', restaurants_path, class: "btn btn-primary mt-4"%>
 </div>
+
+
+
+
+
