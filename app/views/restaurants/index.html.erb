@@ -1,20 +1,15 @@
 
-<div class="container m-4 p-3">
-
 <h1>Restaurants</h1>
-
-<% @restaurants.each do |restaurant| %>
-
-<h2><%= restaurant.name %></h2>
-<p>Address: <%= restaurant.address %></p>
-<p>Phone number: <%= restaurant.phone_number %></p>
-<td ><%= link_to 'Show', restaurant, class: "btn btn-primary" %></td>
-<% end %>
-
 <p><%= link_to 'Add a restaurant', new_restaurant_path, class: "btn btn-primary mt-4" %></p>
-
-
-
+<div class="row">
+  <% @restaurants.each do |restaurant| %>
+    <div class="card m-3" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= restaurant.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">Address: <%= restaurant.address %></h6>
+        <h6 class="card-subtitle mb-2 text-muted">Phone number: <%= restaurant.phone_number %></h6>
+        <%= link_to 'Show', restaurant, class: "card-link" %>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-
